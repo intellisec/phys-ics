@@ -1,0 +1,81 @@
+# --- Python basics ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+*.pyd
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+
+# --- Environments ---
+.venv/
+venv/
+.env
+.env.*
+.envrc
+
+# --- OS cruft ---
+.DS_Store
+Thumbs.db
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.code-workspace
+
+# --- Testing / tooling caches ---
+.pytest_cache/
+.coverage*
+htmlcov/
+.cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Notebooks ---
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+*.ipynb~
+
+# --- Logs & run artifacts ---
+logs/
+*.log
+nohup.out
+
+# --- Training outputs & experiment runs ---
+outputs/
+wandb/
+mlruns/
+lightning_logs/
+tensorboard/
+tb/
+runs/
+checkpoints/
+src/utils_untracked/
+*.ckpt
+*.pt
+*.pth
+
+# --- Figures & generated reports (keep if you prefer) ---
+figures/
+
+# --- Ignore data/ ---
+/data/
+
+# --- Temp & scratch ---
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# --- CLI artifacts ---
+*.out
+*.err
+
+# --- Misc ---
+MANIFEST
+

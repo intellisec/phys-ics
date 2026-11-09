@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pinn-anomaly-detector"
+version = "0.1.0"
+description = "Physics-Informed Next-State Predictor for SWaT"
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+  "numpy>=1.24,<2",
+  "pandas>=2.0",
+  "pyarrow>=12",
+  "openpyxl>=3.1",
+  "matplotlib>=3.7",
+  "scikit-learn>=1.3",
+]
+
+# PyTorch is not pinned in the core dependencies: install the build for your
+# platform, or use the torch-cu128 extra (see README, "Install").
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.4",
+]
+torch-cu128 = [
+  "torch==2.7.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+# package-dir maps src/ to the top level, so the installed packages are
+# `scripts` and `data`, not `src.scripts` / `src.data`.
+pinn-train = "scripts.train:main"
+pinn-convert-swat = "data.convert_swat:main"

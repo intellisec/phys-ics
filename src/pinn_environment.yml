@@ -1,0 +1,36 @@
+# pinn_project/environment.yml
+name: pinn-env          # call “conda activate pinn-env” to use
+channels:
+  - pytorch             #  ❱ gets the official PyTorch builds (CUDA or MPS)
+  - nvidia              #  ❱ CUDA toolkit stubs (Linux GPU only)
+  - conda-forge         #  ❱ the rest of the scientific stack
+dependencies:
+  # -------- core ----------------------------------------------
+  - python           =3.10      # dataclass behaviour stable
+  - pytorch          =2.3.*
+  # --- choose one backend automatically -----------------------
+  # (pytorch channel now ships both CPU and GPU flavours that auto‑detect)
+  # If you want *explicit* CUDA version on Linux:
+  # - pytorch-cuda    =12.1      # uncomment ONLY on a CUDA 12.1 system
+  # ------------------------------------------------------------
+  - numpy
+  - pandas
+  - matplotlib
+  - scikit-learn                # surrogate regressors / diagnostics
+  - jupyterlab                  # notebooks
+  - ipykernel
+  - pyyaml                      # phase configs
+  - tqdm                        # progress bars (Trainer hooks can use)
+  - llvm-openmp                 # macOS parallelism (keeps torch/dill happy)
+
+  # -------- optional, but nice to have ------------------------
+  - seaborn                     # quick residual plots
+  - openpyxl                    # if you still read Excel somewhere
+  - pydoe2                      # factorial design (original list)
+  - pip
+
+  # -------- pip‑only extras -----------------------------------
+  - pip:
+      - wandb>=0.17             # experiment tracking
+      - rich                    # prettier CLI logs (optional)
+      # - pcgrad                # if you later add gradient‑surgery
